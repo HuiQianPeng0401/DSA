@@ -80,6 +80,15 @@ struct BinNode{//节点模板类
     }
 };
 template <typename T>
+int BinNode<T>::size(){
+    int l = 0, r = 0;
+    if(lChild)
+        l = lChild->size();
+    if(rChild)
+        r = rChild->size();
+    return l + r + 1;
+}
+template <typename T>
 BinNodePosi(T) BinNode<T>::succ(){
     BinNodePosi(T) s = this;
     /*有右孩子，则其直接后继必然存在，且属于其右子树
